@@ -1204,7 +1204,7 @@ impl SpannerDb {
             Sorting::Index => format!("{} ORDER BY sortindex DESC", query),
             Sorting::Newest => format!("{} ORDER BY modified DESC", query),
             Sorting::Oldest => format!("{} ORDER BY modified ASC", query),
-            _ => query,
+            _ => format!("{} ORDER BY modified ASC", query),
         };
 
         if let Some(limit) = limit {
